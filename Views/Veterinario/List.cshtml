@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Proyecto_VitalPets_PIV.Models.Veterinario>
+
+@{
+    ViewData["Title"] = "Listado de Veterinarios";
+}
+
+<h2>Listado de Veterinarios</h2>
+
+<p>
+    <a asp-action="Create">Crear nuevo veterinario</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Especialidad</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var veterinario in Model)
+        {
+            <tr>
+                <td>@veterinario.Nombre</td>
+                <td>@veterinario.Especialidad</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@veterinario.Id">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@veterinario.Id">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@veterinario.Id">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

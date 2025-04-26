@@ -1,0 +1,42 @@
+﻿using Proyecto_VitalPets_PIV.Data;
+using Microsoft.EntityFrameworkCore;
+
+@model IEnumerable<Proyecto_VitalPets_PIV.Models.Mascota>
+
+@{
+    ViewData["Title"] = "Listado de Mascotas";
+}
+
+<h2 class="mb-3">Listado de Mascotas</h2>
+
+<a asp-action="Create" class="btn btn-primary mb-3">Registrar Mascota</a>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Nombre</th>
+            <th>Especie</th>
+            <th>Raza</th>
+            <th>Fecha Nacimiento</th>
+            <th>Dueño</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var m in Model)
+        {
+            <tr>
+                <td>@m.Nombre</td>
+                <td>@m.Especie</td>
+                <td>@m.Raza</td>
+                <td>@m.FechaNacimiento.ToShortDateString()</td>
+                <td>@m.Usuario?.Nombre</td>
+                <td>
+                    <a class="btn btn-sm btn-warning" asp-action="Edit" asp-route-id="@m.Id">Editar</a>
+                    <a class="btn btn-sm btn-info" asp-action="Details" asp-route-id="@m.Id">Detalles</a>
+                    <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@m.Id">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

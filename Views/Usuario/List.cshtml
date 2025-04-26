@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Proyecto_VitalPets_PIV.Models.Usuario>
+
+@{
+    ViewData["Title"] = "Listado de Usuarios";
+}
+
+<h2>Listado de Usuarios</h2>
+
+<p>
+    <a asp-action="Create">Crear nuevo usuario</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var usuario in Model)
+        {
+            <tr>
+                <td>@usuario.Nombre</td>
+                <td>@usuario.Correo</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@usuario.Id">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@usuario.Id">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@usuario.Id">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Proyecto_VitalPets_PIV.Models.Cita>
+
+@{
+    ViewData["Title"] = "Listado de Citas";
+}
+
+<h2>Listado de Citas</h2>
+
+<p>
+    <a asp-action="Create">Crear nueva cita</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Mascota</th>
+            <th>Fecha y Hora</th>
+            <th>Tipo de Consulta</th>
+            <th>Veterinaria</th>
+            <th>Estado</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cita in Model)
+        {
+            <tr>
+                <td>@cita.Mascota.Nombre</td>
+                <td>@cita.FechaHora.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>@cita.TipoConsulta</td>
+                <td>@cita.Veterinaria</td>
+                <td>@cita.Estado</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@cita.Id">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@cita.Id">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@cita.Id">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

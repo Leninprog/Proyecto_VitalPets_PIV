@@ -1,0 +1,21 @@
+﻿@model Proyecto_VitalPets_PIV.Models.Mascota
+
+@{
+    ViewData["Title"] = "Borra";
+}
+
+<h1>Borrar</h1>
+
+<h3>Estas seguro de querer eliminar esta mascota?</h3>
+//ingresar url para mostrar foto de la mascota y detalles
+<div>
+    <h4>Mascota</h4>
+    <hr />
+    <dl class="row">
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
