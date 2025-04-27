@@ -17,9 +17,18 @@ namespace Proyecto_VitalPets_PIV.Controllers
         // Listado de usuarios
         public IActionResult Index()
         {
-            var usuarios = _context.Usuarios.ToList();
+            List<Usuario> usuarios = new List<Usuario>();
+            try
+            {
+                usuarios = _context.Usuarios.ToList();
+            }
+            catch (Exception)
+            {
+                // No hacemos nada, simplemente devolvemos una lista vacía si hay error
+            }
             return View("List", usuarios);
         }
+
 
         // Crear nuevo usuario
         public IActionResult Create()
