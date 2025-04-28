@@ -47,16 +47,12 @@ namespace Proyecto_VitalPets_PIV.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Mascota mascota)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(mascota);
-                _context.SaveChanges();
-                return RedirectToAction(nameof(Index));
-            }
+            _context.Add(mascota);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(Index));
 
-            ViewBag.Usuarios = _context.Usuarios.ToList();
-            return View(mascota);
         }
+
 
         // Mostrar formulario para editar mascota
         public IActionResult Edit(int? id)
