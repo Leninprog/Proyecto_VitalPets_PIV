@@ -1,8 +1,73 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Inicio - Vital Pets";
 }
 
+<!-- Carrusel de imágenes -->
+<div id="carouselExampleIndicators" class="carousel slide mb-5" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
+    </div>
+    <div class="carousel-inner rounded shadow">
+        <div class="carousel-item active">
+            <img src="https://cdn.pixabay.com/photo/2018/10/01/09/21/pets-3715734_1280.jpg" class="d-block w-100" alt="Mascota feliz" style="max-height: 600px; width: 80%; object-fit: cover;">
+        </div>
+        <div class="carousel-item">
+            <img src="https://cdn.pixabay.com/photo/2016/03/27/20/51/dogs-1284238_1280.jpg" class="d-block w-100" alt="Veterinario con perro" style="max-height: 600px; width: 80%; object-fit: cover;">
+        </div>
+        <div class="carousel-item">
+            <img src="https://cdn.pixabay.com/photo/2016/12/21/02/42/pets-1922070_1280.jpg" class="d-block w-100" alt="Gato en clínica" style="max-height: 600px; width: 80%; object-fit: cover;">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</div>
+
+<!-- Bienvenida -->
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">¡Bienvenido a Vital Pets! 🐾</h1>
+    <p class="lead mb-5">Cuidamos a tus mejores amigos con amor, ciencia y pasión veterinaria.</p>
+
+    <!-- Cards -->
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <img src="https://cdn.pixabay.com/photo/2023/01/03/16/00/dog-7694676_1280.jpg" class="card-img-top" alt="Vacunas para mascotas">
+                <div class="card-body">
+                    <h5 class="card-title">Cuidado General</h5>
+                    <p class="card-text">Vacunas, chequeos, desparasitaciones y más para que tus mascotas estén siempre saludables.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6" class="card-img-top" alt="Emergencias veterinarias">
+                <div class="card-body">
+                    <h5 class="card-title">Emergencias 24/7</h5>
+                    <p class="card-text">Respondemos rápidamente ante cualquier emergencia veterinaria para salvar vidas.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <img src="https://cdn.pixabay.com/photo/2024/06/28/09/45/veterinarian-8859077_1280.jpg" class="card-img-top" alt="Veterinarios certificados">
+                <div class="card-body">
+                    <h5 class="card-title">Profesionales Certificados</h5>
+                    <p class="card-text">Nuestro equipo cuenta con los mejores veterinarios, comprometidos con tu familia peluda.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón -->
+    <a class="btn btn-success btn-lg mt-4" asp-controller="Mascota" asp-action="Index">
+        ¡Ver nuestras mascotas!
+    </a>
 </div>
