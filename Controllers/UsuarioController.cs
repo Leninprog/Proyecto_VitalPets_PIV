@@ -29,7 +29,6 @@ namespace Proyecto_VitalPets_PIV.Controllers
             return View("List", usuarios);
         }
 
-
         // Crear nuevo usuario
         public IActionResult Create()
         {
@@ -37,9 +36,12 @@ namespace Proyecto_VitalPets_PIV.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Create(Usuario usuario)
         {
-            if (ModelState.IsValid)
+            if (!string.IsNullOrEmpty(usuario.Nombre) &&
+                !string.IsNullOrEmpty(usuario.Correo) &&
+                !string.IsNullOrEmpty(usuario.Contraseña))
             {
                 _context.Usuarios.Add(usuario);
                 _context.SaveChanges();
@@ -57,9 +59,12 @@ namespace Proyecto_VitalPets_PIV.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Edit(Usuario usuario)
         {
-            if (ModelState.IsValid)
+            if (!string.IsNullOrEmpty(usuario.Nombre) &&
+                !string.IsNullOrEmpty(usuario.Correo) &&
+                !string.IsNullOrEmpty(usuario.Contraseña))
             {
                 _context.Usuarios.Update(usuario);
                 _context.SaveChanges();
@@ -85,11 +90,15 @@ namespace Proyecto_VitalPets_PIV.Controllers
         }
 
         [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
             var usuario = _context.Usuarios.Find(id);
-            _context.Usuarios.Remove(usuario);
-            _context.SaveChanges();
+            if (usuario != null)
+            {
+                _context.Usuarios.Remove(usuario);
+                _context.SaveChanges();
+            }
             return RedirectToAction("Index");
         }
     }
